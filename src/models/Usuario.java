@@ -1,5 +1,9 @@
 package models;
 
+import java.util.Scanner;
+
+import service.HandleMenu;
+
 public class Usuario {
 
 	// identificador
@@ -14,6 +18,10 @@ public class Usuario {
 		this.senha = senha;
 	}
 
+	public Usuario () {
+		
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -41,6 +49,53 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return id + ";" + nome + ";" + senha;
+	}
+
+	public void SistemaUsuario() {
+
+		Scanner sc = new Scanner(System.in);
+
+		HandleMenu hm = new HandleMenu();
+		int opcao = 0;
+		do {
+			System.out.println("1 - Criar \n2 - Editar \n3 - Deletar \n4 - Listar \n5 - ListId \n6 - Login \n9 - Sair");
+			opcao = sc.nextInt();
+
+			switch (opcao) {
+			case 1: {
+				hm.criar();
+				break;
+			}
+			case 2: {
+				hm.editar();
+				break;
+			}
+			case 3: {
+				hm.deletar();
+				break;
+			}
+			case 4: {
+				hm.listar();
+				break;
+			}
+			case 5: {
+				hm.listarId();
+				break;
+			}
+			case 6: {
+				hm.loginUsuario();
+				break;
+			}
+			case 9: {
+				System.exit(0);
+				continue;
+				}
+			default:
+				System.out.println("Opcao Invalida");
+			}
+			
+		} while (opcao != 9);
+		sc.close();
 	}
 
 }

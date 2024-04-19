@@ -2,6 +2,8 @@ package sistema;
 
 import java.util.Scanner;
 
+import models.Produto;
+import models.Usuario;
 import service.HandleMenu;
 
 public class Sistema {
@@ -9,42 +11,36 @@ public class Sistema {
 	public static void main(String[] args) {
 		// criar scanner para capturar dados
 		Scanner sc = new Scanner(System.in);
+		Usuario Users = new Usuario();
+		Produto produtos = new Produto();
 
-		HandleMenu hm = new HandleMenu();
-		int opcao = 0;
+		int escolhaSistema;
+		
+
 		do {
-			System.out.println("1 - Criar \n2 - Editar \n3 - Deletar \n4 - Listar \n5 - ListId \n6 - Login \n9 - Sair");
-			opcao = sc.nextInt();
-
-			switch (opcao) {
+			System.out.println("1 - Usuario \n2 - Produto \n5 - Sair");
+			escolhaSistema = sc.nextInt();
+			
+			switch (escolhaSistema) {
 			case 1: {
-				hm.criar();
+				Users.SistemaUsuario();
 				continue;
 			}
 			case 2: {
-				hm.editar();
-				continue;
-			}
-			case 3: {
-				hm.deletar();
-				continue;
-			}
-			case 4: {
-				hm.listar();
+				produtos.SistamaProduto();
 				continue;
 			}
 			case 5: {
-				hm.listarId();
+				System.exit(0);
 				continue;
 			}
-			case 6: {
-				hm.loginUsuario();
-				continue;
-			}
+			
 			default:
 				System.out.println("Opcao Invalida");
 			}
-		} while (opcao != 9);
+		
+	} while (escolhaSistema != 5);
 		sc.close();
 	}
+		
 }
