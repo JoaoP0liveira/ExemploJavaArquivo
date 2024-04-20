@@ -142,5 +142,19 @@ public class GerenciadorDeUsuarios {
 	        System.err.println("Nome ou senha inválidos");
 	    }
 	}
+	
+	public boolean trocarSenha(int id, String senhaAtual, String novaSenha) {
+		List<Usuario> usuarios = lerUsuarios();
+		
+		for (Usuario usuario : usuarios) {
+			if (usuario.getId() == id && usuario.getSenha().equals(senhaAtual)) {
+				usuario.setSenha(novaSenha);
+				reescreverArquivo(usuarios);
+				return true;
+			}
+		}
+		
+		return false;
+	}
 
 }

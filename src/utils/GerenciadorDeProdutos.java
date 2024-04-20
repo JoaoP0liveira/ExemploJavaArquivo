@@ -127,5 +127,23 @@ public class GerenciadorDeProdutos {
 			}
 		}
 	}
+	
+	public double somarPrecosProdutos() {
+        double soma = 0.0;
+        List<Produto> produtos = lerprodutos();
+        for (Produto produto : produtos) {
+            soma += produto.getPreco() * produto.getQuantidade();
+        }
+        return soma;
+    }
+ 
+    public int contarProdutos() {
+    	double soma = 0.0;
+        List<Produto> produtos = lerprodutos();
+        for (Produto produto : produtos) {
+            soma += produto.getQuantidade();
+    }
+        return (int) soma ;
+}
 
 }

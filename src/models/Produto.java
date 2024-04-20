@@ -67,7 +67,7 @@ public class Produto {
 		ProdutoMenu pm = new ProdutoMenu();
 		int opcao = 0;
 		do {
-			System.out.println("1 - Criar \n2 - Editar \n3 - Deletar \n4 - Listar \n5 - ListId \n9 - Sair");
+			System.out.println("1 - Criar \n2 - Editar \n3 - Deletar \n4 - Listar \n5 - Visualizar ID \n6 - Somar preços \n7 - Total produtos \n9 - Sair \n");
 			opcao = sc.nextInt();
 
 			switch (opcao) {
@@ -90,6 +90,14 @@ public class Produto {
 			case 5: {
 				pm.listarId();
 				continue;
+			}
+			case 6:{
+			    pm.exibirSomaPrecosProdutos();
+			    continue;
+			}
+			case 7:{
+			    pm.exibirTotalProdutos();
+			    continue;
 			}
 			case 9: {
 				System.exit(0);

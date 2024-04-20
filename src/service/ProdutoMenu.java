@@ -104,5 +104,15 @@ public class ProdutoMenu {
 		gp.buscarUnico(id);
 	}
 	
+	public void exibirSomaPrecosProdutos() {
+        double soma = gp.somarPrecosProdutos();
+        System.out.println("Soma dos preços de todos os produtos: " + soma);
+    }
+ 
+    public void exibirTotalProdutos() {
+        int total = gp.contarProdutos();
+        System.out.println("Total de produtos cadastrados: " + total);
+    }
+	
 	
 }
